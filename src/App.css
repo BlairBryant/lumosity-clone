@@ -284,6 +284,13 @@ p {
   height: 84vh;
   width: 100%;
   background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.collaborate h2 {
+  margin-top: 60px;
 }
 
 /* ----------------------------------------- */

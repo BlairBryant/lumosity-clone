@@ -1,0 +1,303 @@
+h2 {
+  font-size: 34px;
+  line-height: 48px;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 33px;
+}
+
+h4 {
+  font-size: 21px;
+  line-height: 34px;
+}
+
+h5 {
+  font-size: 20px;
+  line-height: 29px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.app {
+  
+}
+
+.navBar {
+  display: flex;
+  height: 96px;
+  justify-content: center;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.navContainer {
+  display: flex;
+  width: 1000px;
+  justify-content: space-between;
+  
+}
+
+.navBar img {
+  max-height: 35px;
+  max-width: 146px;
+  cursor: pointer;
+}
+
+.logoHolder {
+  height: 46px;
+  width: 200px;
+  padding-top: 14px;
+  padding-left: 6px;
+  
+}
+
+.buttonsHolder {
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-right: 20px;
+}
+
+.getStarted {
+  height: 46px;
+  justify-content: flex-end;
+}
+
+.getStartedButton {
+  height:36px;
+  width:166.5px;
+  background: #F2744A;
+  color: #FFF;
+  flex: initial;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px solid;
+  border-bottom-color: #c94727;
+  box-shadow: 0px 1px #c94727;
+  font-weight: bold;
+  font-size: .8em;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+.logIn {
+  height: 46px;
+  justify-content: flex-end;
+}
+
+.logInButton {
+  height: 36px;
+  width: 87px;
+  margin-left: 10px;
+  background: #F6F6F6;
+  color: #555;
+  flex: initial;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  border-bottom: 1px solid;
+  border-bottom-color: #ccc;
+  box-shadow: 1px 1px #ccc;
+  font-weight: bold;
+  font-size: .8em;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+/* ----------------------------------------- */
+
+.video {
+  height: 100vh;
+  width: 100%;
+  background: rgb(155, 155, 94);
+  
+}
+
+
+/* ----------------------------------------- */
+
+.train {
+  height: 78vh;
+  width: 100%;
+  background: #0E91A1;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 74px;
+}
+
+.train h2 {
+  margin-bottom: 34px;
+}
+
+.train img {
+  max-height: 332px;
+  max-width: 692px;
+  width: 100%;
+  height: auto;
+}
+
+.train h3 {
+  margin-top: 24px;
+  margin-bottom: 10px;
+}
+
+.train p {
+  width: 650px;
+  height: 100px;
+  text-align: center;
+}
+
+.train span {
+  opacity: .7;
+}
+
+/* ----------------------------------------- */
+
+.transform {
+  height: 82vh;
+  width: 100%;
+  /* background: #FFFFFF; */
+  background: yellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.transform h2 {
+  margin-top: 64px;
+}
+
+.transform h5 {
+  width: 988px;
+  height: 58px;
+  margin-top: 16px;
+  margin-bottom: 12px;
+  text-align: center;
+  opacity: .7;
+}
+
+.transform img {
+  max-height: 300px;
+  max-width: 840px;
+  width: 100%;
+  height: auto;
+}
+
+.transformContainer {
+  height: 160px;
+  width: 1028px;
+  margin-top: 28px;
+  display: flex;
+}
+
+.transformBlurbs {
+  margin-left: 28px;
+  width: 460px;
+  height: 142px;
+}
+
+.transformBlurbs h4 {
+  margin-bottom: 12px;
+}
+
+.transformBlurbs p {
+  opacity: .7;
+}
+
+.transform button {
+  height:50px;
+  width:232px;
+}
+
+/* ----------------------------------------- */
+
+.research {
+  height: 79.2vh;
+  width: 100%;
+  background: #146c78;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.research h2 {
+  margin-top: 64px;
+}
+
+.research h5 {
+  margin-top: 12px;
+  margin-bottom: 30px;
+  opacity: .7;
+}
+
+.research img {
+  max-height: 300px;
+  max-width: 840px;
+  width: 100%;
+  height: auto;
+}
+
+.researchRow {
+  height: 102px;
+  width: 1008px;
+  display: flex;
+  margin-top: 30px;
+}
+
+.research section {
+  width: 316px;
+  height: 192px;
+  margin-left: 30px;
+}
+
+.research section:nth-child(2) {
+  width: 290px;
+  margin-right: 10px;
+}
+
+.research h4 {
+  margin-bottom: 10px;
+}
+
+.research p {
+  opacity: .7;
+}
+
+/* ----------------------------------------- */
+
+.collaborate {
+  height: 84vh;
+  width: 100%;
+  background: #FFFFFF;
+}
+
+/* ----------------------------------------- */
+
+.mission {
+  height: 64.5vh;
+  width: 100%;
+  background: red;
+}
+
+/* ----------------------------------------- */
+
+.footer {
+  height: 11vh;
+  width: 100%;
+  background: teal;
+}

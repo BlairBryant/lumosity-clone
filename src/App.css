@@ -37,6 +37,7 @@ p {
   background: rgba(255, 255, 255, 0.95);
   box-sizing: border-box;
   z-index: 3;
+  border-bottom: 1px solid rgba(85, 85, 85, 0.1)
 }
 
 .navContainer {
@@ -121,7 +122,6 @@ p {
   height: 100vh;
   width: 100%;
   background: rgb(155, 155, 94);
-  
 }
 
 
@@ -170,8 +170,7 @@ p {
 .transform {
   height: 82vh;
   width: 100%;
-  /* background: #FFFFFF; */
-  background: yellow;
+  background: #FFFFFF;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -221,6 +220,9 @@ p {
 .transform button {
   height:50px;
   width:232px;
+  text-transform: none;
+  font-size: 18px;
+  font-weight: 500
 }
 
 /* ----------------------------------------- */
@@ -293,18 +295,123 @@ p {
   margin-top: 60px;
 }
 
+.collaborate h5 {
+  height: 58px;
+  width: 940px;
+  text-align: center;
+  padding-top: 16px;
+  padding-bottom: 40px;
+  opacity: .7;
+}
+
+.collaborateIMG {
+  max-width: 840px;
+  max-height: 300px;
+}
+
+.collaborateRow {
+  display: flex;
+  padding-top: 42px;
+  width: 880px;
+}
+
+.collaborate section {
+  width: 160px;
+  height: 104px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 45px;
+  margin-right: 5px;
+}
+
+.collaborate section img {
+  max-width: 36px;
+  max-height: 36px;
+}
+
+.collaborate li {
+  text-align: center;
+  padding-top: 20px;
+  list-style: none;
+  opacity: .7;
+  line-height: 24px;
+  font-size: 15px;
+}
+
+.collaborate h4 {
+  padding-top: 28px;
+}
+
+.collaborate span {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 /* ----------------------------------------- */
 
 .mission {
   height: 64.5vh;
   width: 100%;
-  background: red;
+  background: #104b53;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
+.mission img {
+  max-width: 900px;
+  max-height: 300px;
+  z-index: 3;
+}
+
+.mission h2 {
+  width: 580px;
+  height: 96px;
+  position: absolute;
+  top: 260px;
+  text-align: center;
+}
+
+.mission h5 {
+  width: 730px;
+  height: 58px;
+  margin-top: 76px;
+  opacity: .7;
+  text-align: center;
+}
+
+.mission button {
+  width: 232px;
+  height: 50px;
+  margin-top: 40px;
+  text-transform: none;
+  font-size: 18px;
+  font-weight: 500
+}
 /* ----------------------------------------- */
 
 .footer {
-  height: 11vh;
+  height: 10vh;
   width: 100%;
-  background: teal;
+  background: #f6f7f8;
+  
+}
+
+.footer section {
+  height:10.5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 8px;
+  box-sizing: border-box
+}
+
+.footer h5 {
+  font-size: 12.2px;
+  opacity: .4;
+  cursor: pointer;
+  margin: 5px;
 }

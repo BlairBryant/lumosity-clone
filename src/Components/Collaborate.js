@@ -8,8 +8,8 @@ class Collaborate extends Component {
         <div className="collaborate">
 			<h2>We collaborate with the scientific community</h2>
 			<h5>We work with 100+ researchers worldwide, many of whom we give free access to our brain training tools — helping them research new areas in human cognition.</h5>
-			<img src={collaborateImg} alt="collaborateImg"/>
-			<div>
+			<img className="collaborateIMG" src={collaborateImg} alt="collaborateImg"/>
+			<div className="collaborateRow">
 				<section>
 					<img src={transformCheck} alt="checkImg"/>
 					<li>Free access to Lumosity training</li>
@@ -27,7 +27,7 @@ class Collaborate extends Component {
 					<li>Online surveys for participants</li>
 				</section>
 			</div>
-			<h4>Are you a researcher interested in collaborating with us? Learn More</h4>
+			<h4>Are you a researcher interested in collaborating with us? <span>Learn More</span></h4>
         </div>
       );
     }

@@ -1,0 +1,67 @@
+.dashNav {
+    width: 100%;
+    height: 66px;
+    background: #0E91A1;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
+
+.iconsContainer {
+    min-width: 988px;
+    min-height: 66px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    
+}
+
+.dashNav img {
+    max-width: 101px;
+    max-height: 26px;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+}
+
+li {
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    margin-right: 10px;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 9px;
+    padding-left: 9px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+
+#dashHome {
+    width: 58px;
+    height: 30px;
+}
+
+#dashYourStats {
+    width: 106px;
+    height: 30px;
+}
+
+#dashGames {
+    width: 67px;
+    height: 30px;
+}
+
+#dashInsights {
+    width: 82px;
+    height: 30px;
+}

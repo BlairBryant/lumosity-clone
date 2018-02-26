@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import collaborateImg from '../Images/collaborate.png'
-import transformCheck from '../Images/transformCheck.png'
+import collaborateImg from '../../Images/collaborate.png'
+import transformCheck from '../../Images/transformCheck.png'
 
 class Collaborate extends Component {
     render() {

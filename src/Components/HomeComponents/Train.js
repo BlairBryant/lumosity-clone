@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TrainingImg from "../Images/train.png"
+import TrainingImg from "../../Images/train.png"
 
 class Train extends Component {
     render() {

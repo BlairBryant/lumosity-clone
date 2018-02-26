@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import lumosityLogo from '../Images/lumosity_logo.png'
+import lumosityLogo from '../../Images/lumosity_logo.png'
 
 class NavBar extends Component {
 	render() {

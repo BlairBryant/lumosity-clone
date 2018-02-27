@@ -22,3 +22,7 @@ p {
   font-size: 16px;
   line-height: 25px;
 }
+
+.app {
+  font-family: 'Lato', sans-serif;
+}

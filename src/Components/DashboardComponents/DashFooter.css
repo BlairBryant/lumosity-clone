@@ -1,0 +1,22 @@
+.dashFooter {
+    height: 10vh;
+    width: 100%;
+    margin-top: 80px;
+  }
+  
+  .dashFooter section {
+    height:10.5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 8px;
+    box-sizing: border-box
+  }
+  
+  .dashFooter h5 {
+    font-size: 1em;
+    color: #aeaeae;
+    cursor: pointer;
+    margin: 8px;
+    /* letter-spacing: .5px; */
+  }

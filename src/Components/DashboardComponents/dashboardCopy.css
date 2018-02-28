@@ -1,6 +1,7 @@
 .dashboard {
     /* background: lightcyan; */
     /* delete this */
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,21 +88,19 @@ li {
     align-items: center;
     cursor: pointer;
     font-weight: 400;
-    position: relative;
-    z-index: 5;
 }
 
+.iconsRightContainer {
+    /* width: 208px;
+    height: 64px; */
+}
 
 .avatarContainer {
-    width:214px;
-    height:66px;
     display: flex;
     align-items: center;
-    position: relative;
-    z-index: 4
 }
 
-.avatarContainer:hover {
+.iconsRight:hover {
     background: #146c78;
     transition: .5s;
 }
@@ -126,20 +125,21 @@ li {
 }
 
 .dropdownMenu {
-    width: 206px;
+    width: 208px;
     height: 165px;
     background: white;
     position: absolute;
     top: -175px;
     border: 1px solid #ccc;
-    transition: .5s;
+    box-shadow: 0 5px 8px rgba(0,0,0,0.2);
+    transition: .6s;
     z-index: 1;
 }
 
 .slideIn {
     top: 65px;
-
-    box-shadow: 0 5px 8px rgba(0,0,0,0.2);
+    /* position: absolute;
+    z-index: 4; */
 }
 
 .dropdownOptions {

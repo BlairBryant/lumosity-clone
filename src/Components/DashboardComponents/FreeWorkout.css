@@ -3,6 +3,7 @@
     height: 280px;
     background: #FD7948;
     margin-top: 30px;
+    margin-bottom: 30px;
     color: white;
     border: 1px solid #ccc;
     box-shadow: 0 5px 8px rgba(0,0,0,0.2);
@@ -32,17 +33,6 @@
     margin-right: 58px;
 }
 
-
-/* 
-.gameInfo h4 {
-    font-size: 24px;
-    margin-left: 8px;
-}
-
-.gameInfo p {
-    margin-left: 16px;
-} */
-
 .workoutButton {
     width: 220px;
     height: 50px;
@@ -60,4 +50,8 @@
 
 .workoutButton:hover {
     opacity: .8;
+}
+
+.freeLink {
+    text-decoration: none;
 }

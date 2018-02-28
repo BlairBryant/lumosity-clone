@@ -27,8 +27,9 @@ class DashNav extends Component {
                     </div>
 
 
-                    <div className='iconsRight'>
+                    <div className='iconsRight' onClick={() => this.setState({ slideIn: !this.state.slideIn})}>
 
+                        <div className='iconsRightContainer'>
                             <div className={this.state.slideIn ? 'dropdownMenu slideIn' : 'dropdownMenu'}>
                                 <section className='dropdownOptions'>
                                     <div>Account Settings</div>
@@ -39,11 +40,13 @@ class DashNav extends Component {
                                 </section>
                             </div>
 
-                            <div className='avatarContainer' onClick={() => this.setState({ slideIn: !this.state.slideIn})}> 
+                            <div className='avatarContainer'> 
                                 <img src={userHead} alt="userHeadImg" />
                                 <span>Username</span>
-                                <span className="lnr lnr-chevron-down"></span>
+                                <span class="lnr lnr-chevron-down"></span>
                             </div>   
+
+                        </div>
 
                     </div>
 

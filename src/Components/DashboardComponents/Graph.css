@@ -1,0 +1,25 @@
+.graphContainer {
+    width: 988px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between
+}
+
+.graphInfo {
+    margin-top: 28px;
+    box-sizing: border-box;
+    padding-right: 28px;
+    color: #555;
+}
+
+.graphInfo h2 {
+    margin-bottom: 10px;
+}
+
+.lpiLine {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 20px;
+}
+

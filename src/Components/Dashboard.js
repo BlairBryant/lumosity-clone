@@ -1,7 +1,12 @@
 import React, {Component} from 'react'
 import DashNav from './DashboardComponents/DashNav'
-import './DashboardComponents/Dashboard.css'
 import FreeWorkout from './DashboardComponents/FreeWorkout'
+import GraphInfo from './DashboardComponents/GraphInfo'
+import Graph from './DashboardComponents/Graph'
+import DashFooter from './DashboardComponents/DashFooter'
+
+import './DashboardComponents/Dashboard.css'
+import './DashboardComponents/Graph.css'
 
 class Dashboard extends Component {
     render() {
@@ -9,7 +14,11 @@ class Dashboard extends Component {
         <div className="dashboard">
             <DashNav />
             <FreeWorkout />
-            this dash
+            <div className='graphContainer'>
+              <GraphInfo />
+              <Graph />
+            </div>
+            <DashFooter />
         </div>
       );
     }

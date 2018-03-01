@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import lumosityLogoWhite from '../../Images/lumosity_logo_white.png'
 import '../../../node_modules/hover.css/css/hover.css'
 import userHead from '../../Images/userHead.png'
+import {Link} from 'react-router-dom'
 
 class DashNav extends Component {
     constructor() {
@@ -17,7 +18,7 @@ class DashNav extends Component {
             <section className='dashNav'>
                 <div className='iconsContainer'>
                     <div className='iconsLeft'>
-                        <img src={lumosityLogoWhite} alt="Lumosity" />
+                        <Link to='/'><img src={lumosityLogoWhite} alt="Lumosity" /></Link>
                         <ul>
                             <li className='hvr-radial-out' id='dashHome'>HOME</li>
                             <li className='hvr-radial-out' id='dashYourStats'>YOUR STATS</li>

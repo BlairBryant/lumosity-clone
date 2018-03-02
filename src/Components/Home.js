@@ -23,7 +23,6 @@ class Home extends Component {
         <Mission />
         <Footer />
 
-
       </div>
     );
   }

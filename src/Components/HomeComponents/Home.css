@@ -1,14 +1,23 @@
+.app {
+  /* background: #0E91A1; */
+
+}
+
+section {
+  margin: 0px;
+}
+
 .navBar {
     display: flex;
-    height: 96px;
+    height: 10vh;
     justify-content: center;
     padding: 20px;
     position: fixed;
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
     box-sizing: border-box;
-    z-index: 3;
-    border-bottom: 1px solid rgba(85, 85, 85, 0.1)
+    z-index: 25;
+    border-bottom: 1px solid rgba(85, 85, 85, 0.1);
   }
   
   .navContainer {
@@ -51,7 +60,7 @@
     background: #F2744A;
     color: #FFF;
     flex: initial;
-    border-radius: 3px;
+    border-radius: 5px;
     border: none;
     cursor: pointer;
     border-bottom: 1px solid;
@@ -89,15 +98,70 @@
   
   /* ----------------------------------------- */
   
+
+
   .video {
     height: 100vh;
+    max-height: 100vh;
     width: 100%;
-    background: rgb(155, 155, 94);
+    background: #0E91A1;    
+    background-color: rgba(0, 255, 200, 0.3);
+    position: relative;
+    z-index: 1;
+    max-height: 853px;
+  }
+
+  .content {
+    position: absolute;
+    top: 10.1vh;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    align-content: center;
+    box-sizing: border-box;
+    z-index:5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .content h2 {
+    width: 580px;
+    height: 96px;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  .content h5 {
+    margin-bottom: 34px;
+  }
+
+  .video button {
+    height:50px;
+    width:232px;
+    text-transform: none;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .videoContainer {
+    /* margin-top: 95px; */
+    position: relative;
+    /* max-height: 853px; */
+    z-index: 2
   }
   
-  
+  #myVideo {
+    /* max-height: 90vh; */
+    min-width: 100%;
+    background: contain;
+   }
   /* ----------------------------------------- */
   
+
   .train {
     height: 78vh;
     width: 100%;
@@ -108,6 +172,9 @@
     align-items: center;
     box-sizing: border-box;
     padding: 74px;
+    position: relative;
+    z-index: 8;
+    margin-top: 96px
   }
   
   .train h2 {

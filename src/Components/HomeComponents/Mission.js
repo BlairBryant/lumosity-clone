@@ -8,7 +8,7 @@ class Mission extends Component {
           <img src={missionImg} alt="MissionImg"/>
           <h2>Join us on a mission to advance the understanding of human cognition</h2>
           <h5>85 Million brain trainers in 182 countries challenge their brains with Lumosity — and we’re honored to learn from this vibrant global community.</h5>
-          <button className='getStartedButton'>Get Started Now</button>
+          <a href='http://localhost:3500/auth'><button className='getStartedButton'>Get Started Now</button></a>
         </div>
       );
     }

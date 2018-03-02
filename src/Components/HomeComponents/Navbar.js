@@ -14,7 +14,7 @@ class NavBar extends Component {
 							<a href='http://localhost:3500/auth'><button className='getStartedButton'>Get Started Now</button></a>
 						</div>
 						<div className='logIn'>
-							<button className='logInButton'>Log In</button>
+							<a href='http://localhost:3500/auth'><button className='logInButton'>Log In</button></a>
 						</div>
 					</div>
 				</div>

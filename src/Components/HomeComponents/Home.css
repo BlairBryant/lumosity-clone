@@ -11,7 +11,7 @@ section {
     display: flex;
     height: 10vh;
     justify-content: center;
-    padding: 20px;
+    height: 10vh;
     position: fixed;
     width: 100%;
     background: rgba(255, 255, 255, 0.95);
@@ -24,7 +24,7 @@ section {
     display: flex;
     width: 1000px;
     justify-content: space-between;
-    
+    margin-top: 2vh;
   }
   
   .navBar img {

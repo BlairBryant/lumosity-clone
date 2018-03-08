@@ -14,7 +14,7 @@ export default function FreeWorkout() {
                         <h2>Focus</h2>
                         <h4>Attention</h4>
                         <p>How many things can you focus on</p>
-                        <Link to='/game' className='freeLink'><div className='workoutButton'>Start workout</div></Link>
+                        <Link to='/shapeshift' className='freeLink'><div className='workoutButton'>Start workout</div></Link>
                     </div>
                 </section>
 

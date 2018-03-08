@@ -71,6 +71,10 @@ section {
     letter-spacing: .5px;
     text-transform: uppercase;
   }
+
+  .getStartedButton:hover  {
+    opacity: .9;
+  }
   
   .logIn {
     height: 46px;

@@ -27,14 +27,81 @@
     background: #fff;
     box-shadow: 0px 1px 2px #e2e2e2;
     border: solid 1px #e2e2e2;
+    box-sizing: border-box;
+    
 }
 
 .shapeShift {
     width: 640px;
     height: 480px;
     background: bisque;
-    margin: 0px;
+    display: flex;
 }
+
+.colorDiv {
+    width:50%;
+    height: 480px;
+    background: aqua
+}
+
+#rightColor {
+    background: lightslategray;
+}
+
+
+
+.preGame {
+    width: 640px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: burlywood;
+    box-sizing: border-box;
+    padding-top: 40px;
+    /* radial gradient for shadow */
+}
+
+.preGame h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #333;
+    font-size: 50px;
+}
+
+.preGame h5 {
+    width: 350px;
+    text-align: center;
+    color: #555;
+    line-height: 24px;
+}
+
+.preGameShape {
+    width: 150px;
+    height: 150px;
+    background: cadetblue;
+    margin: 30px;
+}
+
+.gameButtonsHolder {
+    display: flex;
+    margin-right: 20px;
+}
+
+.preGame button {
+    width: 100px;
+    height: 44px;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    text-transform: none;
+}
+
+#howToPlay {
+    margin-right: 20px;
+    width: 140px;
+    height: 45px;
+
+}
+/* -------------------------------------- */
 
 .attentionBlurb {
     width: 258px;

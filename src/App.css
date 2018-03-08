@@ -26,3 +26,7 @@ p {
 .app {
   font-family: 'Lato', sans-serif;
 }
+
+button {
+  outline: none;
+}

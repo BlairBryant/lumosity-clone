@@ -1,0 +1,50 @@
+.preGame {
+    width: 640px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: tan;
+    box-sizing: border-box;
+    padding-top: 40px;
+    /* radial gradient for shadow */
+}
+
+.preGame h2 {
+    font-family: 'Josefin Sans', sans-serif;
+    color: #333;
+    font-size: 50px;
+}
+
+.preGame h5 {
+    width: 350px;
+    text-align: center;
+    color: #555;
+    line-height: 24px;
+}
+
+.preGameShape {
+    width: 150px;
+    height: 150px;
+    background: cadetblue;
+    margin: 30px;
+}
+
+.gameButtonsHolder {
+    display: flex;
+    margin-right: 20px;
+}
+
+.preGame button {
+    width: 100px;
+    height: 44px;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    text-transform: none;
+}
+
+#howToPlay {
+    margin-right: 20px;
+    width: 140px;
+    height: 45px;
+}

@@ -19,8 +19,6 @@ class Transform extends Component {
 					</div>
 				</div>
 				<a href='http://localhost:3500/auth'><button className='getStartedButton'>Get Started Now</button></a>
-				
-
 			</div>
 		);
 	}

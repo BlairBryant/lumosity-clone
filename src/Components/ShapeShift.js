@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import DashNav from './DashboardComponents/DashNav';
-import Game from './ShapeShiftComponents/Game'
+import GameContainer from './ShapeShiftComponents/GameContainer'
+// import DashFooter from './DashboardComponents/DashFooter'
 
 export default class ShapeShift extends Component {
-    render() {
+    render() {    
         return(
             <div className='shapeShiftPage'>
                 <DashNav />
-                <Game />
+                <GameContainer />
+                {/* <DashFooter /> */}
             </div>
         )
     }

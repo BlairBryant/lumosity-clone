@@ -4,13 +4,16 @@ import PreGame from './PreGame'
 import HowToPlay from './HowToPlay'
 import Game from './Game'
 import GameLoading from './GameLoading'
+import Result from './Result'
 
 export default class GameContainer extends Component {
     constructor() {
         super()
 
         this.state = {
-            currentDisplay: 'Game'
+            currentDisplay: 'Game',
+            correct: 0,
+            incorrect: 0
         }
         this.changeCurrentDisplay = this.changeCurrentDisplay.bind(this)
     }
@@ -20,7 +23,7 @@ export default class GameContainer extends Component {
     }
 
     render() {
-        const { currentDisplay } = this.state
+        const { currentDisplay, correct, incorrect } = this.state
 
         let display
         switch (currentDisplay) {
@@ -31,7 +34,10 @@ export default class GameContainer extends Component {
                 display = <GameLoading changeCurrentDisplay={this.changeCurrentDisplay}/>
                 break;
             case 'Game':
-                display = <Game />
+                display = <Game correct={correct} incorrect={incorrect}/>
+                break;
+            case 'Result':
+                display = <Result changeCurrentDisplay={this.changeCurrentDisplay} correct={correct} incorrect={incorrect}/>
                 break;
 
             default:

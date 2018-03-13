@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
+import './HowToPlay.css'
 
-export default class HowToPlay extends Component {
-    render() {
-        return (
-            <div className='howToPlay'>
-                How to play
-            </div>
-        )
-    }
+export default function HowToPlay(props) {
+    return (
+        <div className='preGame'>
+            <h3>Instructions</h3>
+            <button className='getStartedButton' id='gamePlayButton' onClick={() => props.changeCurrentDisplay('GameLoading')}>Play</button>
+        </div>
+    )
 }

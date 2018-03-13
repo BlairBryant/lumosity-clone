@@ -1,0 +1,9 @@
+.howToPlay {
+    background: #ecd0a2;    
+}
+
+#gamePlayButton {
+    position: absolute;
+    bottom: 37%;
+    left: 52.5%;
+}

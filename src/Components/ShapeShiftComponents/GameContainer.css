@@ -30,7 +30,9 @@
 .attentionBlurb {
     width: 258px;
     margin-left: 20px;
-    color: #444
+    color: #444;
+    position: relative;
+    z-index: -4;
 }
 
 .attentionBlurb h5 {

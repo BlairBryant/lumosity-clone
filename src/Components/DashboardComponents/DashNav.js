@@ -11,7 +11,6 @@ class DashNav extends Component {
         this.state = {
             slideIn: false,
         }
-
     }
     render() {
         return (

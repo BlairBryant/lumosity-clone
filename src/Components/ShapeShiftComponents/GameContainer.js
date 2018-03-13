@@ -10,7 +10,7 @@ export default class GameContainer extends Component {
         super()
 
         this.state = {
-            currentDisplay: null
+            currentDisplay: 'Game'
         }
         this.changeCurrentDisplay = this.changeCurrentDisplay.bind(this)
     }
@@ -28,7 +28,7 @@ export default class GameContainer extends Component {
                 display = <HowToPlay changeCurrentDisplay={this.changeCurrentDisplay}/>
                 break;
             case 'GameLoading':
-                display = <GameLoading />
+                display = <GameLoading changeCurrentDisplay={this.changeCurrentDisplay}/>
                 break;
             case 'Game':
                 display = <Game />

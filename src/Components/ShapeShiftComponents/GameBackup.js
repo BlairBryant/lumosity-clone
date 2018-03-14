@@ -21,34 +21,33 @@ export default class HowToPlay extends Component {
             blackCircle: { top: '222px', left: '222px' },
         }
         this.stop = false
-        this.timerIDs = [0]
+        this.timerIDs = []
 
         this.decreaseGameTimer = this.decreaseGameTimer.bind(this)
         this.moveWhiteCircle = this.moveWhiteCircle.bind(this)
-        this.moveBlackCircle = this.moveBlackCircle.bind(this)
-        // this.moveWhiteCircle.stopTimer = this.moveWhiteCircle.stopTimer.bind(this)
+        this.getRandomRange = this.getRandomRange.bind(this)
     }
 
     componentDidMount() {
         this.gameTimerID = window.setInterval(this.decreaseGameTimer, 1000)
-        // this.moveWhiteCircle()
-        // this.moveBlackCircle()
+        this.whiteCircleID = window.setInterval(this.moveWhiteCircle, this.getRandomRange(3, 20))
+        // this.blackCircleID = 
     }
 
     decreaseGameTimer() {
         this.setState({ gameTimer: this.state.gameTimer - 1 })
     }
 
-    moveWhiteCircle() {
-        var { stop, timerIDs, moveWhiteCircle } = this
+    timer() {
+        let { stop, timerIDs, timer } = this
+        console.log('timer')
         if (stop) {
             for (let i = 0; i < timerIDs.length; i++) {
-                clearTimeout(moveWhiteCircle, timerIDs[i])
+                clearTimeout(timer, timerIDs[i])
             }
         }
         else {
-            this.setState({ whiteCircle: {top: `${Math.floor(Math.random() * 423 + 4)}px`, left: `${Math.floor(Math.random() * 583 + 4)}px` }})
-            let id = setTimeout(moveWhiteCircle, Math.random() * 1000 + 300)
+            let id = setTimeout(timer, Math.random() * 1000)
             timerIDs.push(id)
         }
         return {
@@ -58,23 +57,12 @@ export default class HowToPlay extends Component {
         }
     }
 
-    moveBlackCircle() {
-        var { stop, timerIDs, moveBlackCircle} = this
-        if (stop) {
-            for (let i = 0; i < timerIDs.length; i++) {
-                clearTimeout(moveBlackCircle, timerIDs[i])
-            }
-        }
-        else {
-            this.setState({ blackCircle: {top: `${Math.floor(Math.random() * 423 + 4)}px`, left: `${Math.floor(Math.random() * 583 + 4)}px` }})
-            let id = setTimeout(moveBlackCircle, Math.random() * 1000 + 300)
-            timerIDs.push(id)
-        }
-        return {
-            stopTimer() {
-                stop = true
-            }
-        }
+    getRandomRange(min, max) {
+        return (Math.floor(Math.random() * (max - min + 1)) + min) * 100
+    }
+
+    moveWhiteCircle() {
+        this.setState({ whiteCircle: {top: `${Math.floor(Math.random() * 423 + 4)}px`, left: `${Math.floor(Math.random() * 583 + 4)}px` } })
     }
 
     render() {
@@ -89,7 +77,7 @@ export default class HowToPlay extends Component {
                     <div className='circle' id='blackCircle' style={blackCircle}></div>
 
                     <div className='gameButtons' id='colorButton' onClick={() => this.setState({ leftShape: square })}>Color</div>
-                    <div className='gameButtons' id='shapeButton' onClick={() => this.moveWhiteCircle.stopTimer()}>Shape</div>
+                    <div className='gameButtons' id='shapeButton'>Shape</div>
                     <div className='gameButtons' id='circleButton'>Circle</div>
 
                     <div className='colorDiv' id='leftColor' style={leftColor}>

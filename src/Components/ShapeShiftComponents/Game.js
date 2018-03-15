@@ -17,8 +17,8 @@ export default class HowToPlay extends Component {
             rightColor: { background: '#E5E7E6' },
             leftShape: xShape,
             rightShape: circle,
-            whiteCircle: { top: '4px', left: '586px' },
-            blackCircle: { top: '222px', left: '222px' },
+            whiteCircle: { top: '222px', left: '222px' },
+            blackCircle: { top: '30px', left: '570px' },
         }
         this.stop = false
         this.timerIDs = [0]
@@ -33,6 +33,8 @@ export default class HowToPlay extends Component {
         this.changeRightShape = this.changeRightShape.bind(this)
         this.moveWhiteCircle = this.moveWhiteCircle.bind(this)
         this.moveBlackCircle = this.moveBlackCircle.bind(this)
+
+        
         // this.moveWhiteCircle.stopTimer = this.moveWhiteCircle.stopTimer.bind(this)
     }
 
@@ -44,7 +46,6 @@ export default class HowToPlay extends Component {
         // this.moveBlackCircle()
         // this.changeLeftShape()
         // this.changeRightShape()
-
     }
 
     decreaseGameTimer() {
@@ -88,6 +89,7 @@ export default class HowToPlay extends Component {
             }
         }
     }
+
     changeLeftShape() {
         var { stop, timerIDs, changeLeftShape, shapesArray} = this
         if (stop) {

@@ -1,9 +1,31 @@
 .howToPlay {
-    background: #ecd0a2;    
+    width: 640px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ecd0a2;
+    box-sizing: border-box;
+    padding-top: 40px;
+    /* radial gradient for shadow */
+}
+
+.howToPlayDesc {
+    width: 300px;
+    font-size: 18px;
+    line-height: 1.2;
+    color: #333;
+        
 }
 
 #gamePlayButton {
+    width: 100px;
+    height: 44px;
     position: absolute;
     bottom: 37%;
     left: 52.5%;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    text-transform: none;
 }
+

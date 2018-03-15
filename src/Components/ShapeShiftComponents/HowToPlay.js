@@ -3,8 +3,9 @@ import './HowToPlay.css'
 
 export default function HowToPlay(props) {
     return (
-        <div className='preGame'>
+        <div className='howToPlay'>
             <h3>Instructions</h3>
+            <h4 className='howToPlayDesc'>Listen for a clicking sound. A change in color, shape, or the position of the 2 circles on the screen triggered it. Determine which it was, and click on the corresponding button.</h4>
             <button className='getStartedButton' id='gamePlayButton' onClick={() => props.changeCurrentDisplay('GameLoading')}>Play</button>
         </div>
     )

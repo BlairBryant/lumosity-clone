@@ -11,8 +11,10 @@
 }
 
 .loadingTimer {
+    font-size: 100px;
     position: absolute;
-    top: 0
+    top: 160px;
+    left: 290px;
 }
 
 #fakeGame {

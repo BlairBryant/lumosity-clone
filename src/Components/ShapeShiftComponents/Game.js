@@ -13,18 +13,21 @@ export default class HowToPlay extends Component {
         this.state = {
             gameTimer: 45,
             leftColor: { background: '#7CA5B8' },
-            // leftColor: { background: '#6add19' },
             rightColor: { background: '#E5E7E6' },
             leftShape: xShape,
             rightShape: circle,
             whiteCircle: { top: '222px', left: '222px' },
             blackCircle: { top: '30px', left: '570px' },
+            winCondition: 'Circle',
+            soundCondition: ''
         }
         this.stop = false
         this.timerIDs = [0]
         this.shapesArray = [square, xShape, circle, triangle]
         this.leftColorsArray = ['#7CA5B8', '#C1CAD6', '#7B6D8D', '#E8B4BC', '#B3B7EE']
         this.rightColorsArray = ['#E5E7E6', '#b9b912', '#B2C9AB', '#EFD9CE', '#96C5F7']
+        this.allColorsArray = ['#7CA5B8', '#C1CAD6', '#7B6D8D', '#E8B4BC', '#B3B7EE', '#E5E7E6', '#b9b912', '#B2C9AB', '#EFD9CE', '#96C5F7']
+        this.winConditionsArray = ['Color', 'Shape', 'Circle']
 
         this.decreaseGameTimer = this.decreaseGameTimer.bind(this)
         this.changeLeftColor = this.changeLeftColor.bind(this)
@@ -33,23 +36,31 @@ export default class HowToPlay extends Component {
         this.changeRightShape = this.changeRightShape.bind(this)
         this.moveWhiteCircle = this.moveWhiteCircle.bind(this)
         this.moveBlackCircle = this.moveBlackCircle.bind(this)
+        this.setWinCondition = this.setWinCondition.bind(this)
+        this.guessClick = this.guessClick.bind(this)
 
         
         // this.moveWhiteCircle.stopTimer = this.moveWhiteCircle.stopTimer.bind(this)
     }
 
     componentDidMount() {
-        this.gameTimerID = window.setInterval(this.decreaseGameTimer, 1000)
+        // this.setWinCondition()
+        // this.gameTimerID = window.setInterval(this.decreaseGameTimer, 1000)
         // this.changeLeftColor()
-        // this.changeRightColor()
+        // window.setTimeout(this.changeRightColor, 2000)
         // this.moveWhiteCircle()
         // this.moveBlackCircle()
-        // this.changeLeftShape()
+        // window.setTimeout(this.changeLeftShape, 2000)
         // this.changeRightShape()
     }
 
     decreaseGameTimer() {
-        this.setState({ gameTimer: this.state.gameTimer - 1 })
+        const {gameTimer} = this.state
+        if (gameTimer === 1) {
+            this.props.changeCurrentDisplay('Result')
+        } else {
+            this.setState({ gameTimer: gameTimer - 1 })
+        }
     }
 
     changeLeftColor() {
@@ -166,22 +177,46 @@ export default class HowToPlay extends Component {
         }
     }
 
+    setWinCondition() {
+        const {winConditionsArray, allColorsArray} = this
+        let newWinCondition = winConditionsArray[Math.floor(Math.random()*3)]
+        this.setState({winCondition: newWinCondition})
+        if(newWinCondition === 'Color') {
+            this.setState({soundCondition: allColorsArray[Math.floor(Math.random()*10)]})
+        }
+        else if(newWinCondition === 'Shape') {
+            this.setState({})
+        } else {
 
+        }
+
+
+    }
+
+    guessClick(clickedBox) {
+        const {winCondition} = this.state
+        if (clickedBox === winCondition) {
+            this.props.addCorrect()
+        } else {
+            this.props.addIncorrect()
+        }
+        this.setWinCondition()
+    }
 
     render() {
         const { gameTimer, leftColor, rightColor, leftShape, rightShape, whiteCircle, blackCircle } = this.state
-        const { correct, incorrect } = this.props
+        const {guessClick} = this
 
         return (
             <div className='game'>
                 <section className='shapeShift'>
-                    <div className='gameCountDown'>{/*{gameTimer}*/}45</div>
+                    <div className={gameTimer < 10 ? 'gameCountDown gameCountDown9' : 'gameCountDown'}>{gameTimer}</div>
                     <div className='circle' id='whiteCircle' style={whiteCircle}></div>
                     <div className='circle' id='blackCircle' style={blackCircle}></div>
 
-                    <div className='gameButtons' id='colorButton' onClick={() => this.setState({ leftShape: square })}>Color</div>
-                    <div className='gameButtons' id='shapeButton' onClick={() => this.moveWhiteCircle.stopTimer()}>Shape</div>
-                    <div className='gameButtons' id='circleButton'>Circle</div>
+                    <div className='gameButtons' id='colorButton' onClick={() => guessClick('Color')}>Color</div>
+                    <div className='gameButtons' id='shapeButton' onClick={() => guessClick('Shape')}>Shape</div>
+                    <div className='gameButtons' id='circleButton' onClick={() => guessClick('Circle')}>Circle</div>
 
                     <div className='colorDiv' id='leftColor' style={leftColor}>
                         <div className='shapeContainer' id='leftShape'>

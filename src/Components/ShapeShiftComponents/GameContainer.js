@@ -12,37 +12,50 @@ export default class GameContainer extends Component {
         super()
 
         this.state = {
-            currentDisplay: '',
+            currentDisplay: 'Game',
             correct: 0,
             incorrect: 0
         }
         this.changeCurrentDisplay = this.changeCurrentDisplay.bind(this)
+        this.addCorrect = this.addCorrect.bind(this)
+        this.addIncorrect = this.addIncorrect.bind(this)
     }
 
     changeCurrentDisplay(displayName) {
         this.setState({currentDisplay: displayName})
     }
 
+    addCorrect() {
+        this.setState({correct: this.state.correct + 1})
+    }
+
+    addIncorrect() {
+        this.setState({incorrect: this.state.incorrect + 1})
+    }
+
     render() {
         const { currentDisplay, correct, incorrect } = this.state
+        const {changeCurrentDisplay, addCorrect, addIncorrect} = this
+        console.log('correct: ', correct)
+        console.log('incorrect: ', incorrect)
 
         let display
         switch (currentDisplay) {
             case 'HowToPlay':
-                display = <HowToPlay changeCurrentDisplay={this.changeCurrentDisplay}/>
+                display = <HowToPlay changeCurrentDisplay={changeCurrentDisplay}/>
                 break;
             case 'GameLoading':
-                display = <GameLoading changeCurrentDisplay={this.changeCurrentDisplay}/>
+                display = <GameLoading changeCurrentDisplay={changeCurrentDisplay}/>
                 break;
             case 'Game':
-                display = <Game correct={correct} incorrect={incorrect}/>
+                display = <Game addCorrect={addCorrect} addIncorrect={addIncorrect} changeCurrentDisplay={changeCurrentDisplay}/>
                 break;
             case 'Result':
-                display = <Result changeCurrentDisplay={this.changeCurrentDisplay} correct={correct} incorrect={incorrect}/>
+                display = <Result changeCurrentDisplay={changeCurrentDisplay} correct={correct} incorrect={incorrect}/>
                 break;
 
             default:
-                display = <PreGame changeCurrentDisplay={this.changeCurrentDisplay}/>
+                display = <PreGame changeCurrentDisplay={changeCurrentDisplay}/>
         }
 
         return (

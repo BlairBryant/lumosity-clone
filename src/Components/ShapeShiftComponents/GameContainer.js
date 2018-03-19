@@ -36,8 +36,8 @@ export default class GameContainer extends Component {
     render() {
         const { currentDisplay, correct, incorrect } = this.state
         const {changeCurrentDisplay, addCorrect, addIncorrect} = this
-        console.log('correct: ', correct)
-        console.log('incorrect: ', incorrect)
+        // console.log('correct: ', correct)
+        // console.log('incorrect: ', incorrect)
 
         let display
         switch (currentDisplay) {

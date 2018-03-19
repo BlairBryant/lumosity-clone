@@ -14,11 +14,11 @@ export default class GameLoading extends Component {
     }
 
     componentDidMount(){
-            // this.intervalID = window.setInterval(this.decreaseTimer, 1200)
+            this.intervalID = window.setInterval(this.decreaseTimer, 1200)
     }
 
     decreaseTimer() {
-        if(this.state.startTimer === 0) {
+        if(this.state.startTimer === 1) {
             window.clearInterval(this.intervalID)
             this.props.changeCurrentDisplay('Game')
         } else {
@@ -52,7 +52,8 @@ export default class GameLoading extends Component {
 
                     </section>
                 </div>
-                <div className='loadingTimer'>{this.state.startTimer}</div> 
+                <div className='loadingTimer'>{this.state.startTimer}</div>
+                <div className='gameShadow'></div> 
             </div>
         )
     }

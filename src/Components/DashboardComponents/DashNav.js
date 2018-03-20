@@ -19,9 +19,9 @@ class DashNav extends Component {
                     <div className='iconsLeft'>
                         <Link to='/'><img src={lumosityLogoWhite} alt="Lumosity" /></Link>
                         <ul>
-                            <li className='hvr-radial-out' id='dashHome'>HOME</li>
-                            <li className='hvr-radial-out' id='dashYourStats'>YOUR STATS</li>
-                            <li className='hvr-radial-out' id='dashGames'>GAMES</li>
+                            <Link to='/dashboard'><li className='hvr-radial-out' id='dashHome'>HOME</li></Link>
+                            <Link to='/dashboard'><li className='hvr-radial-out' id='dashYourStats'>YOUR STATS</li></Link>
+                            <Link to='/shapeshift'><li className='hvr-radial-out' id='dashGames'>GAMES</li></Link>
                             <li className='hvr-radial-out' id='dashInsights'>INSIGHTS</li>
                         </ul>
                     </div>

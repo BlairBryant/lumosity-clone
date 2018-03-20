@@ -12,25 +12,31 @@ export default class HowToPlay extends Component {
         super(props)
 
         this.state = {
-            gameTimer: 45,
+            gameTimer: 30,
             leftColor: { background: '#7CA5B8' },
             rightColor: { background: '#E5E7E6' },
             leftShape: xShape,
             rightShape: circle,
             whiteCircle: { top: '222px', left: '222px' },
             blackCircle: { top: '30px', left: '570px' },
-            winCondition: 'Circle',
-            soundCondition: '#C1CAD6'
+            winCondition: '',
+            soundCondition: ''
         }
 
         this.stop = false
         this.lcSound = false
         this.rcSound = false
+        this.lsSound = false
+        this.rsSound = false
+        this.bcSound = false
+        this.wcSound = false
         this.timerIDs = [0]
         this.shapesArray = [square, xShape, circle, triangle]
-        this.leftColorsArray = ['#7CA5B8', '#C1CAD6', '#7B6D8D', '#E8B4BC', '#B3B7EE']
-        this.rightColorsArray = ['#E5E7E6', '#b9b912', '#B2C9AB', '#EFD9CE', '#96C5F7']
-        this.allColorsArray = ['#7CA5B8', '#C1CAD6', '#7B6D8D', '#E8B4BC', '#B3B7EE', '#E5E7E6', '#b9b912', '#B2C9AB', '#EFD9CE', '#96C5F7']
+        this.leftColorsArray = ['#7CA5B8', '#7B6D8D', '#E8B4BC', '#B3B7EE']
+        this.rightColorsArray = ['#E5E7E6', '#b9b912', '#B2C9AB', '#EFD9CE']
+        this.colorConditionsArray = ['#7CA5B8', '#7B6D8D', '#E8B4BC', '#B3B7EE', '#E5E7E6', '#b9b912', '#B2C9AB', '#EFD9CE']
+        this.shapeConditionsArray = ['leftShapeSquare', 'leftShapeTriangle', 'leftShapeX', 'leftShapeCircle', 'rightShapeSquare', 'rightShapeTriangle', 'rightShapeX', 'rightShapeCircle']
+        this.circleConditionsArray = ['whiteCircleLeft', 'whiteCircleRight', 'blackCircleLeft', 'blackCircleRight']
         this.winConditionsArray = ['Color', 'Shape', 'Circle']
         this.conditionSound = new Audio(glassSound)
 
@@ -43,18 +49,17 @@ export default class HowToPlay extends Component {
         this.moveBlackCircle = this.moveBlackCircle.bind(this)
         this.setWinCondition = this.setWinCondition.bind(this)
         this.guessClick = this.guessClick.bind(this)
-
     }
 
     componentDidMount() {
-        // this.setWinCondition()
-        // this.gameTimerID = window.setInterval(this.decreaseGameTimer, 1000)
-        // this.changeLeftColor()
-        // window.setTimeout(this.changeRightColor, 2000)
-        // this.moveWhiteCircle()
-        // this.moveBlackCircle()
-        // window.setTimeout(this.changeLeftShape, 2000)
-        // this.changeRightShape()
+        this.setWinCondition()
+        this.gameTimerID = window.setInterval(this.decreaseGameTimer, 1000)
+        this.changeLeftColor()
+        window.setTimeout(this.changeRightColor, 1000)
+        this.moveWhiteCircle()
+        this.moveBlackCircle()
+        window.setTimeout(this.changeLeftShape, 1000)
+        this.changeRightShape()
     }
 
     decreaseGameTimer() {
@@ -70,7 +75,7 @@ export default class HowToPlay extends Component {
     changeLeftColor() {
         var { stop, timerIDs, changeLeftColor, leftColorsArray} = this
         if (!stop) {
-            this.setState({ leftColor: {background: leftColorsArray[Math.floor(Math.random()*5)]}})
+            this.setState({ leftColor: {background: leftColorsArray[Math.floor(Math.random()*4)]}})
             let id = setTimeout(changeLeftColor, Math.random() * 1000 + 900)
             timerIDs.push(id)
         }
@@ -79,7 +84,7 @@ export default class HowToPlay extends Component {
     changeRightColor() {
         var { stop, timerIDs, changeRightColor, rightColorsArray} = this
         if (!stop) {
-            this.setState({ rightColor: {background: rightColorsArray[Math.floor(Math.random()*5)]}})
+            this.setState({ rightColor: {background: rightColorsArray[Math.floor(Math.random()*4)]}})
             let id = setTimeout(changeRightColor, Math.random() * 1000 + 900)
             timerIDs.push(id)
         }
@@ -122,24 +127,18 @@ export default class HowToPlay extends Component {
     }
 
     setWinCondition() {
-        const {winConditionsArray, allColorsArray} = this
-        const {soundCondition} = this.state
-        this.conditionSound.play()
+        const {winConditionsArray, colorConditionsArray, shapeConditionsArray,circleConditionsArray} = this
         let newWinCondition = winConditionsArray[Math.floor(Math.random()*3)]
         this.setState({winCondition: newWinCondition})
 
-        soundCondition
-
         if(newWinCondition === 'Color') {
-            this.setState({soundCondition: allColorsArray[Math.floor(Math.random()*10)]})
+            this.setState({soundCondition: colorConditionsArray[Math.floor(Math.random()*8)]})
         }
         else if(newWinCondition === 'Shape') {
-            this.setState({})
+            this.setState({soundCondition: shapeConditionsArray[Math.floor(Math.random()*8)]})
         } else {
-
+            this.setState({soundCondition: circleConditionsArray[Math.floor(Math.random()*4)]})
         }
-
-
     }
 
     guessClick(clickedBox) {
@@ -154,9 +153,10 @@ export default class HowToPlay extends Component {
 
     render() {
         const { gameTimer, leftColor, rightColor, leftShape, rightShape, whiteCircle, blackCircle, soundCondition } = this.state
-        const {guessClick, conditionSound, lcSound, rcSound} = this
-        console.log(leftColor.background)
-        
+        const {guessClick, conditionSound, lcSound, rcSound, lsSound, rsSound, bcSound, wcSound} = this
+        console.log('winCondition: ', this.state.winCondition)
+        console.log('soundCondition: ', soundCondition)
+
         if (leftColor.background === soundCondition && !lcSound) {
             conditionSound.play()
             this.lcSound = true
@@ -170,6 +170,90 @@ export default class HowToPlay extends Component {
         }
         if (rightColor.background !== soundCondition) {
             this.rcSound = false
+        }
+        if (soundCondition === 'leftShapeSquare' && leftShape === square && !lsSound) {
+            conditionSound.play()
+            this.lsSound = true
+        }
+        if (soundCondition === 'leftShapeSquare' && leftShape !== square) {
+            this.lsSound = false
+        }
+        if (soundCondition === 'leftShapeTriangle' && leftShape === triangle && !lsSound) {
+            conditionSound.play()
+            this.lsSound = true
+        }
+        if (soundCondition === 'leftShapeTriangle' && leftShape !== triangle) {
+            this.lsSound = false
+        }
+        if (soundCondition === 'leftShapeX' && leftShape === xShape && !lsSound) {
+            conditionSound.play()
+            this.lsSound = true
+        }
+        if (soundCondition === 'leftShapeX' && leftShape !== xShape) {
+            this.lsSound = false
+        }
+        if (soundCondition === 'leftShapeCircle' && leftShape === circle && !lsSound) {
+            conditionSound.play()
+            this.lsSound = true
+        }
+        if (soundCondition === 'leftShapeCircle' && leftShape !== circle) {
+            this.lsSound = false
+        }
+        if (soundCondition === 'rightShapeSquare' && rightShape === square && !rsSound) {
+            conditionSound.play()
+            this.rsSound = true
+        }
+        if (soundCondition === 'rightShapeSquare' && rightShape !== square) {
+            this.rsSound = false
+        }
+        if (soundCondition === 'rightShapeTriangle' && rightShape === triangle && !rsSound) {
+            conditionSound.play()
+            this.rsSound = true
+        }
+        if (soundCondition === 'rightShapeTriangle' && rightShape !== triangle) {
+            this.rsSound = false
+        }
+        if (soundCondition === 'rightShapeX' && rightShape === xShape && !rsSound) {
+            conditionSound.play()
+            this.rsSound = true
+        }
+        if (soundCondition === 'rightShapeX' && rightShape !== xShape) {
+            this.rsSound = false
+        }
+        if (soundCondition === 'rightShapeCircle' && rightShape === circle && !rsSound) {
+            conditionSound.play()
+            this.rsSound = true
+        }
+        if (soundCondition === 'rightShapeCircle' && rightShape !== circle) {
+            this.rsSound = false
+        }
+        if (soundCondition === 'whiteCircleLeft' && parseInt(whiteCircle.left, 10) < 270 && !wcSound) {
+            conditionSound.play()
+            this.wcSound = true
+        }
+        if (soundCondition === 'whiteCircleLeft' && parseInt(whiteCircle.left, 10) > 320) {
+            this.wcSound = false
+        }
+        if (soundCondition === 'whiteCircleRight' && parseInt(whiteCircle.left, 10) > 320 && !wcSound) {
+            conditionSound.play()
+            this.wcSound = true
+        }
+        if (soundCondition === 'whiteCircleRight' && parseInt(whiteCircle.left, 10) < 270) {
+            this.wcSound = false
+        }
+        if (soundCondition === 'blackCircleLeft' && parseInt(blackCircle.left, 10) < 270 && !bcSound) {
+            conditionSound.play()
+            this.bcSound = true
+        }
+        if (soundCondition === 'blackCircleLeft' && parseInt(blackCircle.left, 10) > 320) {
+            this.bcSound = false
+        }
+        if (soundCondition === 'blackCircleRight' && parseInt(blackCircle.left, 10) > 320 && !bcSound) {
+            conditionSound.play()
+            this.bcSound = true
+        }
+        if (soundCondition === 'blackCircleRight' && parseInt(blackCircle.left, 10) < 270) {
+            this.bcSound = false
         }
 
         return (

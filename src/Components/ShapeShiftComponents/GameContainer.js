@@ -12,7 +12,7 @@ export default class GameContainer extends Component {
         super()
 
         this.state = {
-            currentDisplay: 'Result',
+            currentDisplay: '',
             correct: 0,
             incorrect: 0
         }
@@ -67,7 +67,6 @@ export default class GameContainer extends Component {
                     <div className='gameControls' id='controlsPause'>ll</div>
                     <div className='gameControls' id='controlsAudio'><span className="lnr lnr-volume-high"></span></div>
                     </section>
-
                     <section className='attentionBlurb'>
                         <h5>Attention Division</h5>
                         <p className='attentionLine'></p>

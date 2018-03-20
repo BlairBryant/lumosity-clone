@@ -9,11 +9,16 @@ export default class Result extends Component {
     constructor(props) {
         super(props)
 
-
     }
 
     componentDidMount() {
         let score = this.props.correct * 250 - this.props.incorrect * 350
+        if(score < 0 && this.props.correct < 6) {
+            score = this.props.correct * 100
+        }
+        if(score < 0 && this.props.correct > 6) {
+            score = 0
+        }
         axios.post('/api/postScore', {score: score})
     }
 
@@ -33,7 +38,6 @@ export default class Result extends Component {
                 </div>
                 <img src={miniTriangle} alt="miniTriangle" className='miniTriangle'/>
                 <img src={minixShape} alt="minixShape" className='minixShape'/>
-    
             </div>
         )
     }

@@ -14,11 +14,9 @@ class DashNav extends Component {
             userName: '',
         }
     }
-
     componentDidMount() {
         axios.get('/api/dashnav').then(res => {
             this.setState({userName: res.data})
-            console.log(this.state.userName)
         })
     }
     render() {
@@ -35,10 +33,7 @@ class DashNav extends Component {
                             <li className='hvr-radial-out' id='dashInsights'>INSIGHTS</li>
                         </ul>
                     </div>
-
-
                     <div className='iconsRight'>
-
                             <div className={this.state.slideIn ? 'dropdownMenu slideIn' : 'dropdownMenu'}>
                                 <section className='dropdownOptions'>
                                     <div>Account Settings</div>
@@ -54,9 +49,7 @@ class DashNav extends Component {
                                 <span>{userName}</span>
                                 <span className="lnr lnr-chevron-down"></span>
                             </div>   
-
                     </div>
-
                 </div>
             </section>
         )

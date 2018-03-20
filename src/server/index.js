@@ -76,6 +76,8 @@ app.get('/auth/logout', (req, res) => {
 
 
 app.get('/api/dashnav', ctrl.getUsername)
+app.get('/api/getScores', ctrl.getScores)
 app.post('/api/postScore', ctrl.postScore)
+
 
 app.listen(SERVER_PORT, () => console.log(`listening on port ${SERVER_PORT}`))

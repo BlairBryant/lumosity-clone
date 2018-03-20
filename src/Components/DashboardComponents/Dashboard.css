@@ -122,7 +122,8 @@ li {
 .lnr-chevron-down {
     color: white;
     font-size: 20px;
-    margin-left: 42px;
+    position: absolute;
+    right: 20px;
 }
 
 .dropdownMenu {

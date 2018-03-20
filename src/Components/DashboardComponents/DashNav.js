@@ -3,6 +3,7 @@ import lumosityLogoWhite from '../../Images/lumosity_logo_white.png'
 import '../../../node_modules/hover.css/css/hover.css'
 import userHead from '../../Images/userHead.png'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 class DashNav extends Component {
     constructor() {
@@ -10,9 +11,18 @@ class DashNav extends Component {
 
         this.state = {
             slideIn: false,
+            userName: '',
         }
     }
+
+    componentDidMount() {
+        axios.get('/api/dashnav').then(res => {
+            this.setState({userName: res.data})
+            console.log(this.state.userName)
+        })
+    }
     render() {
+        const {userName} = this.state
         return (
             <section className='dashNav'>
                 <div className='iconsContainer'>
@@ -41,7 +51,7 @@ class DashNav extends Component {
 
                             <div className='avatarContainer' onClick={() => this.setState({ slideIn: !this.state.slideIn})}> 
                                 <img src={userHead} alt="userHeadImg" />
-                                <span>Username</span>
+                                <span>{userName}</span>
                                 <span className="lnr lnr-chevron-down"></span>
                             </div>   
 

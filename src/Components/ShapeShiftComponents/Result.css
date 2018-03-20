@@ -34,9 +34,14 @@
 }
 
 #resultButton {
+    width: 100px;
+    height: 44px;
     text-transform: none;
     position: relative;
     z-index: 2;
+    font-family: 'Lato', sans-serif;    
+    font-size: 18px;
+    top: 50px;
     /* background: #F6F6F6; */
     /* color: #555; */
     

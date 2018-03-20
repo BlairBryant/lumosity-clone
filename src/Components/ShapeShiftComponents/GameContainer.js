@@ -12,7 +12,7 @@ export default class GameContainer extends Component {
         super()
 
         this.state = {
-            currentDisplay: 'Game',
+            currentDisplay: 'Result',
             correct: 0,
             incorrect: 0
         }

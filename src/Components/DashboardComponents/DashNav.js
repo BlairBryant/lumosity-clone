@@ -45,7 +45,7 @@ class DashNav extends Component {
                                     <div>Invite Friends</div>
                                     <div>Help</div>
                                     <section className='logoutLine'></section>
-                                    <div className='logout'>Logout</div>
+                                    <a href='http://localhost:3500/auth/logout'><div className='logout'>Logout</div></a>
                                 </section>
                             </div>
 

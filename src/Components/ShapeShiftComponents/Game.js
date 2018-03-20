@@ -58,7 +58,7 @@ export default class HowToPlay extends Component {
 
     componentDidMount() {
         this.setWinCondition()
-        // this.gameTimerID = window.setInterval(this.decreaseGameTimer, 1000)
+        this.gameTimerID = window.setInterval(this.decreaseGameTimer, 1000)
         this.changeLeftColor()
         window.setTimeout(this.changeRightColor, 1000)
         this.moveWhiteCircle()
@@ -81,7 +81,7 @@ export default class HowToPlay extends Component {
         var { stop, timerIDs, changeLeftColor, leftColorsArray} = this
         if (!stop) {
             this.setState({ leftColor: {background: leftColorsArray[Math.floor(Math.random()*4)]}})
-            let id = setTimeout(changeLeftColor, Math.random() * 1000 + 900)
+            let id = setTimeout(changeLeftColor, Math.random() * 1000 + 700)
             timerIDs.push(id)
         }
     }
@@ -90,7 +90,7 @@ export default class HowToPlay extends Component {
         var { stop, timerIDs, changeRightColor, rightColorsArray} = this
         if (!stop) {
             this.setState({ rightColor: {background: rightColorsArray[Math.floor(Math.random()*4)]}})
-            let id = setTimeout(changeRightColor, Math.random() * 1000 + 900)
+            let id = setTimeout(changeRightColor, Math.random() * 1000 + 700)
             timerIDs.push(id)
         }
     }
@@ -99,7 +99,7 @@ export default class HowToPlay extends Component {
         var { stop, timerIDs, changeLeftShape, shapesArray} = this
         if (!stop) {
             this.setState({ leftShape: shapesArray[Math.floor(Math.random()*4)]})
-            let id = setTimeout(changeLeftShape, Math.random() * 1000 + 900)
+            let id = setTimeout(changeLeftShape, Math.random() * 1000 + 700)
             timerIDs.push(id)
         }
     }
@@ -108,7 +108,7 @@ export default class HowToPlay extends Component {
         var { stop, timerIDs, changeRightShape, shapesArray} = this
         if (!stop) {
             this.setState({ rightShape: shapesArray[Math.floor(Math.random()*4)]})
-            let id = setTimeout(changeRightShape, Math.random() * 1000 + 900)
+            let id = setTimeout(changeRightShape, Math.random() * 1000 + 700)
             timerIDs.push(id)
         }
     }
@@ -117,7 +117,7 @@ export default class HowToPlay extends Component {
         var { stop, timerIDs, moveWhiteCircle } = this
         if (!stop) {
             this.setState({ whiteCircle: {top: `${Math.floor(Math.random() * 423 + 4)}px`, left: `${Math.floor(Math.random() * 583 + 4)}px` }})
-            let id = setTimeout(moveWhiteCircle, Math.random() * 1000 + 900)
+            let id = setTimeout(moveWhiteCircle, Math.random() * 1000 + 700)
             timerIDs.push(id)
         }
     }
@@ -126,7 +126,7 @@ export default class HowToPlay extends Component {
         var { stop, timerIDs, moveBlackCircle} = this
         if (!stop) {
             this.setState({ blackCircle: {top: `${Math.floor(Math.random() * 423 + 4)}px`, left: `${Math.floor(Math.random() * 583 + 4)}px` }})
-            let id = setTimeout(moveBlackCircle, Math.random() * 1000 + 900)
+            let id = setTimeout(moveBlackCircle, Math.random() * 1000 + 700)
             timerIDs.push(id)
         }
     }

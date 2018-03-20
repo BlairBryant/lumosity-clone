@@ -69,8 +69,13 @@ app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
     successRedirect: `http://localhost:3000/#/dashboard`
 }))
+app.get('/auth/logout', (req, res) => {
+    req.logOut()
+    res.redirect('http://localhost:3000')
+})
 
 
 app.get('/api/dashnav', ctrl.getUsername)
+app.post('/api/postScore', ctrl.postScore)
 
 app.listen(SERVER_PORT, () => console.log(`listening on port ${SERVER_PORT}`))

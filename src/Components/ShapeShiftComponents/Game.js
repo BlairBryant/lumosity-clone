@@ -5,6 +5,9 @@ import circle from '../../Images/circle.png'
 import xShape from '../../Images/x.png'
 import square from '../../Images/square.png'
 import glassSound from '../../Images/Glass.mp3'
+import correctSound from '../../Images/correctSound.mp3'
+import incorrectSound from '../../Images/incorrectSound.mp3'
+
 
 
 export default class HowToPlay extends Component {
@@ -12,7 +15,7 @@ export default class HowToPlay extends Component {
         super(props)
 
         this.state = {
-            gameTimer: 30,
+            gameTimer: 45,
             leftColor: { background: '#7CA5B8' },
             rightColor: { background: '#E5E7E6' },
             leftShape: xShape,
@@ -39,6 +42,8 @@ export default class HowToPlay extends Component {
         this.circleConditionsArray = ['whiteCircleLeft', 'whiteCircleRight', 'blackCircleLeft', 'blackCircleRight']
         this.winConditionsArray = ['Color', 'Shape', 'Circle']
         this.conditionSound = new Audio(glassSound)
+        this.correctSound = new Audio(correctSound)
+        this.incorrectSound = new Audio(incorrectSound)
 
         this.decreaseGameTimer = this.decreaseGameTimer.bind(this)
         this.changeLeftColor = this.changeLeftColor.bind(this)
@@ -53,7 +58,7 @@ export default class HowToPlay extends Component {
 
     componentDidMount() {
         this.setWinCondition()
-        this.gameTimerID = window.setInterval(this.decreaseGameTimer, 1000)
+        // this.gameTimerID = window.setInterval(this.decreaseGameTimer, 1000)
         this.changeLeftColor()
         window.setTimeout(this.changeRightColor, 1000)
         this.moveWhiteCircle()
@@ -143,9 +148,13 @@ export default class HowToPlay extends Component {
 
     guessClick(clickedBox) {
         const {winCondition} = this.state
+        const {correctSound, incorrectSound} = this
         if (clickedBox === winCondition) {
+            correctSound.volume = .2
+            correctSound.play()
             this.props.addCorrect()
         } else {
+            incorrectSound.play()
             this.props.addIncorrect()
         }
         this.setWinCondition()

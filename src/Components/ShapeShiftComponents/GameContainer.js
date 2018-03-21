@@ -12,7 +12,7 @@ export default class GameContainer extends Component {
         super()
 
         this.state = {
-            currentDisplay: '',
+            currentDisplay: 'HowToPlay',
             correct: 0,
             incorrect: 0
         }
@@ -36,9 +36,6 @@ export default class GameContainer extends Component {
     render() {
         const { currentDisplay, correct, incorrect } = this.state
         const {changeCurrentDisplay, addCorrect, addIncorrect} = this
-        // console.log('correct: ', correct)
-        // console.log('incorrect: ', incorrect)
-
         let display
         switch (currentDisplay) {
             case 'HowToPlay':
@@ -63,9 +60,9 @@ export default class GameContainer extends Component {
                 <div className='gameAndInfoContainer'>
                     <section className='gameBorder'>
                         {display}
-                    <div className='gameControls' id='controlsQuestion'>?</div>
-                    <div className='gameControls' id='controlsPause'>ll</div>
-                    <div className='gameControls' id='controlsAudio'><span className="lnr lnr-volume-high"></span></div>
+                        <div className='gameControls' id='controlsQuestion'>?</div>
+                        <div className='gameControls' id='controlsPause'>ll</div>
+                        <div className='gameControls' id='controlsAudio'><span className="lnr lnr-volume-high"></span></div>
                     </section>
                     <section className='attentionBlurb'>
                         <h5>Attention Division</h5>

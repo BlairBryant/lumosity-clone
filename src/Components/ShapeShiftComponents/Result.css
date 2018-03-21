@@ -30,7 +30,7 @@
 }
 
 .result h4 {
-    color: red;
+    color: #d00;
 }
 
 #resultButton {
@@ -42,9 +42,10 @@
     font-family: 'Lato', sans-serif;    
     font-size: 18px;
     top: 50px;
-    /* background: #F6F6F6; */
-    /* color: #555; */
-    
+    background: rgb(230, 230, 230);
+    border-bottom-color: #ccc;
+    box-shadow: 1px 1px #ccc;
+    color: #333;   
 }
 
 .resultCirclesContainer {

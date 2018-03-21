@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './Result.css'
 import {Link} from 'react-router-dom'
-import miniTriangle from '../../Images/triangle.png'
-import minixShape from '../../Images/x.png'
+import miniTriangle from '../../Images/blueTriangle.svg'
+import minixShape from '../../Images/darkX.svg'
 import axios from 'axios'
 
 export default class Result extends Component {

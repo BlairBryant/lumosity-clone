@@ -40,7 +40,7 @@ class DashNav extends Component {
                                     <div>Invite Friends</div>
                                     <div>Help</div>
                                     <section className='logoutLine'></section>
-                                    <a href='http://localhost:3500/auth/logout'><div className='logout'>Logout</div></a>
+                                    <a href={process.env.REACT_APP_LOGOUT}><div className='logout'>Logout</div></a>
                                 </section>
                             </div>
 

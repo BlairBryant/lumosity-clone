@@ -8,7 +8,6 @@ const passport = require('passport')
 const Auth0Strategy = require('passport-auth0')
 require('dotenv').config()
 
-
 const {
     REACT_APP_SUCCESS,
     REACT_APP_LOGOUT,

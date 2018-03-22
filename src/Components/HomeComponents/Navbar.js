@@ -11,10 +11,10 @@ class NavBar extends Component {
 					</div>
 					<div className='buttonsHolder'>
 						<div className='getStarted'>
-							<a href='http://localhost:3500/auth'><button className='getStartedButton'>Get Started Now</button></a>
+							<a href={process.env.REACT_APP_LOGIN}><button className='getStartedButton'>Get Started Now</button></a>
 						</div>
 						<div className='logIn'>
-							<a href='http://localhost:3500/auth'><button className='logInButton'>Log In</button></a>
+							<a href={process.env.REACT_APP_LOGIN}><button className='logInButton'>Log In</button></a>
 						</div>
 					</div>
 				</div>

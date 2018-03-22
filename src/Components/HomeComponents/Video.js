@@ -7,7 +7,7 @@ class Video extends Component {
         <div className="content">
           <h2>Enjoy brain training created by scientists and game designers</h2>
           <h5>Start your training with 50+ cognitive games today.</h5>
-          <a href='http://localhost:3500/auth'><button className='getStartedButton'>Get Started Now</button></a>
+          <a href={process.env.REACT_APP_LOGIN}><button className='getStartedButton'>Get Started Now</button></a>
         </div>
         <section className='videoContainer'>
           <video id="myVideo" loop autoPlay>

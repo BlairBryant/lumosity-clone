@@ -10,6 +10,8 @@ require('dotenv').config()
 
 
 const {
+    REACT_APP_SUCCESS,
+    REACT_APP_LOGOUT,
     SERVER_PORT,
     SECRET,
     DOMAIN,
@@ -20,6 +22,8 @@ const {
 } = process.env
 
 const app = express();
+
+app.use(express.static( `${__dirname}/../build` ))
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
@@ -67,11 +71,11 @@ passport.deserializeUser((id, done) => {
 
 app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
-    successRedirect: `http://localhost:3000/#/dashboard`
+    successRedirect: REACT_APP_SUCCESS
 }))
 app.get('/auth/logout', (req, res) => {
     req.logOut()
-    res.redirect('http://localhost:3000')
+    res.redirect(REACT_APP_LOGOUT)
 })
 
 

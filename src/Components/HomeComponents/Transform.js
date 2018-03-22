@@ -18,7 +18,7 @@ class Transform extends Component {
 						<p>Our designers and developers add exciting game features and themes while making sure each game is accessible, engaging, and challenging to people of all ages.</p>
 					</div>
 				</div>
-				<a href='http://localhost:3500/auth'><button className='getStartedButton'>Get Started Now</button></a>
+				<a href={process.env.REACT_APP_LOGIN}><button className='getStartedButton'>Get Started Now</button></a>
 			</div>
 		);
 	}

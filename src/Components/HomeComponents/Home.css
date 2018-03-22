@@ -74,7 +74,7 @@ section {
   }
 
   .getStartedButton:hover  {
-    opacity: .9;
+    background: #f05c2a
   }
   
   .logIn {
@@ -157,14 +157,11 @@ section {
   }
 
   .videoContainer {
-    /* margin-top: 95px; */
     position: relative;
-    /* max-height: 853px; */
     z-index: 2
   }
   
   #myVideo {
-    /* max-height: 90vh; */
     min-width: 100%;
     background: contain;
    }

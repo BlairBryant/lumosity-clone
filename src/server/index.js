@@ -6,11 +6,12 @@ const ctrl = require('./controller');
 const session = require('express-session')
 const passport = require('passport')
 const Auth0Strategy = require('passport-auth0')
-const checkForSession = require('./middleware/checkForSession')
 require('dotenv').config()
 
 
 const {
+    REACT_APP_SUCCESS,
+    REACT_APP_LOGOUT,
     SERVER_PORT,
     SECRET,
     DOMAIN,
@@ -21,6 +22,13 @@ const {
 } = process.env
 
 const app = express();
+
+app.use(express.static( `${__dirname}/../build` ))
+
+massive(CONNECTION_STRING).then(db => {
+    app.set('db', db)
+})
+
 app.use(bodyParser.json());
 app.use(cors())
 
@@ -30,11 +38,8 @@ app.use(session({
     saveUninitialized: true
 }))
 
-app.use(checkForSession)
-
 app.use(passport.initialize())
 app.use(passport.session())
-
 passport.use(new Auth0Strategy({
     domain: DOMAIN,
     clientID: CLIENT_ID,
@@ -42,27 +47,41 @@ passport.use(new Auth0Strategy({
     callbackURL: CALLBACK_URL,
     scope: 'openid profile'
 }, function (accessToken, refreshToken, extraParams, profile, done) {
-    done(null, profile)
+    const db = app.get('db')
+    db.findUser([profile.id]).then(user => {
+        if(!user[0]) {
+            db.createUser([profile.displayName, profile.id])
+            .then(userCreated => {
+                done(null, userCreated[0].user_id)
+            })
+        } else {
+            done(null, user[0].user_id)
+        }
+    })
 }))
 
-passport.serializeUser(function (profile, done) {
-    done(null, profile)
+passport.serializeUser((id, done) => {
+    done(null, id)
 })
-passport.deserializeUser(function (profile, done) {
-    done(null, profile)
+passport.deserializeUser((id, done) => {
+    app.get('db').findSessionUser([id]).then(user => {
+        done(null, user[0])
+    })
 })
 
 app.get('/auth', passport.authenticate('auth0'))
 app.get('/auth/callback', passport.authenticate('auth0', {
-    //type endpoint in after 3000/ 
-    successRedirect: `http://localhost:3000/#/dashboard`
+    successRedirect: REACT_APP_SUCCESS
 }))
-
-const port = SERVER_PORT
-
-massive(CONNECTION_STRING).then(db => {
-    app.set('db', db);
-    app.listen(port, () => {
-        console.log(`listening on port ${port}`)
-    })
+app.get('/auth/logout', (req, res) => {
+    req.logOut()
+    res.redirect(REACT_APP_LOGOUT)
 })
+
+
+app.get('/api/dashnav', ctrl.getUsername)
+app.get('/api/getScores', ctrl.getScores)
+app.post('/api/postScore', ctrl.postScore)
+
+
+app.listen(SERVER_PORT, () => console.log(`listening on port ${SERVER_PORT}`))

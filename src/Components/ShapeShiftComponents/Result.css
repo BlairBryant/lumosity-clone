@@ -1,0 +1,195 @@
+.result {
+    width: 640px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #ecd0a2;
+    box-sizing: border-box;
+    padding-top: 150px;
+    font-family: 'Josefin Sans', sans-serif;    
+    color: #333;
+    position: relative;
+}
+
+.correctContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.result h2 {
+    font-size: 50px;    
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+#resultCorrect {
+    color: green;
+}
+
+.result h4 {
+    color: #d00;
+}
+
+#resultButton {
+    width: 100px;
+    height: 44px;
+    text-transform: none;
+    position: relative;
+    z-index: 2;
+    font-family: 'Lato', sans-serif;    
+    font-size: 18px;
+    top: 50px;
+    background: rgb(230, 230, 230);
+    border-bottom-color: #ccc;
+    box-shadow: 1px 1px #ccc;
+    color: #333;   
+}
+
+.resultCirclesContainer {
+    width: 480px;
+    height: 480px;
+    position: absolute;
+    bottom: 0;
+    animation-name: spin;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    /* background: aqua */
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+.resultCircle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 18px #555;
+    opacity: .5;
+    left: 215px;
+    z-index: 2; 
+}
+
+#resultWhiteCircle {
+    background: white;
+    top: 12px;
+    animation-name: unOpacity;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+}
+
+@keyframes unOpacity {
+    0% {
+        opacity: 1
+    }
+    20% {
+        opacity: .8;
+    }
+    50% {
+        opacity: .2;
+    }
+    80% {
+        opacity: .8;
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+#resultBlackCircle {
+    background: black;
+    box-shadow: 0 0 18px #fff;
+    bottom: 12px;    
+    animation-name: unOpacityBlack;
+    animation-iteration-count: infinite;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+}
+
+@keyframes unOpacityBlack {
+    0% {
+        opacity: .2
+    }
+    40% {
+        opacity: .6;
+    }
+    50% {
+        opacity: 1;
+    }
+    60% {
+        opacity: .6;
+    }
+    100% {
+        opacity: .2
+    }
+}
+
+.miniTriangle {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    z-index: 1;
+    top: 90px;
+    right: -100px;
+    animation-name: flow;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+}
+
+@keyframes flow {
+    0% {
+        right: 0px;
+        transform: rotate(0deg);
+    }
+    50% {
+        right: 544px;
+    }
+    100% {
+        right: 0px;
+        transform: rotate(1080deg)
+    }
+}
+
+.minixShape {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    z-index: 1;
+    top: 280px;
+    right: -100px;
+    animation-name: xFlow;
+    animation-iteration-count: infinite;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+}
+
+@keyframes xFlow {
+    0% {
+        right: 600px;
+        transform: rotate(0deg);
+    }
+    20% {
+        right: 440px;
+        top: 444px;
+    }
+    50% {
+        right: 0px;
+        top: 320px;
+    }
+    100% {
+        right: 600px;
+        transform: rotate(-900deg)
+    }
+}

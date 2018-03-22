@@ -1,18 +1,17 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './PreGame.css'
+import triangle from '../../Images/triangle.png'
 
-export default class PreGame extends Component {
-    render() {
-        return (
-            <section className='preGame'>
-                <h2>Shape Shift</h2>
-                <h5>Divide your attention across changing colors, shapes, and positions</h5>
-                <div className='preGameShape'>Triangle</div>
-                <div className='gameButtonsHolder'>
-                    <button className='logInButton' id='howToPlay'>How to Play</button>
-                    <button className='getStartedButton' onClick={() => this.setState({ playingGame: true })}>Play</button>
-                </div>
-            </section>
-        )
-    }
+export default function PreGame(props) {
+    return (
+        <section className='preGame'>
+            <h2>Shape Shift</h2>
+            <h5>Divide your attention across changing colors, shapes, and positions</h5>
+            <img className='preGameShape' src={triangle} alt="openTriangle"/> 
+            <div className='gameButtonsHolder'>
+                <button className='logInButton' id='howToPlay' onClick={() => props.changeCurrentDisplay('HowToPlay')}>How to Play</button>
+                <button className='getStartedButton' onClick={() => props.changeCurrentDisplay('GameLoading')}>Play</button>
+            </div>
+        </section>
+    )
 }

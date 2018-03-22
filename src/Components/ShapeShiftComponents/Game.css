@@ -1,16 +1,107 @@
+.shapeShiftPage {
+    position: relative;
+    z-index: -3;
+}
+
 .shapeShift {
     width: 640px;
     height: 480px;
     background: bisque;
     display: flex;
+    position: relative;
+}
+
+.gameCountDown {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 7%;
+    left: 46.2%;
+    font-size: 40px;
+    font-weight: 700;
+    text-shadow: 0 0 10px #222;
+    color: #fff;
+}
+
+.gameCountDown9 {
+    margin-left: 12px;
+}
+
+.gameButtons {
+    width: 80px;
+    height: 45px;
+    border-radius: 12px;
+    border: 4px solid white;
+    box-shadow: 0 0 6px #777;    
+    position: absolute;
+    top: 76%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 6px #777;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.gameButtons:hover {
+    cursor: pointer;
+    background: #54af14
+}
+
+.gameButtons:active {
+    box-shadow: 0 0 18px #6add19;
+}
+
+#colorButton {
+    left: 18%;
+}
+
+#shapeButton {
+    left: 43%;
+}
+
+#circleButton {
+    right: 18%
 }
 
 .colorDiv {
-    width:50%;
+    width: 50%;
     height: 480px;
-    background: aqua
 }
 
-#rightColor {
-    background: lightslategray;
+.shapeContainer {
+    width: 120px;
+    height: 120px;
+    box-shadow: 0 0 18px #555;
+    position: relative;
+    border-radius: 20px;
+    top: 60px;
+    left: 110px;    
+}
+
+.openShapes {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0 0 18px #555;
+    opacity: .5;
+}
+
+#whiteCircle {
+    background: white;
+}
+
+#blackCircle {
+    background: black;
+    box-shadow: 0 0 18px #fff;    
 }
